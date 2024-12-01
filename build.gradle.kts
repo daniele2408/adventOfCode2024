@@ -1,3 +1,6 @@
+import java.io.FileInputStream
+import java.util.*
+
 plugins {
     kotlin("jvm") version "1.9.23"
 }
@@ -21,9 +24,14 @@ kotlin {
     jvmToolchain(21)
 }
 
+val properties = Properties().apply {
+    load(FileInputStream(rootProject.file("src/main/resources/local.properties")))
+}
+val localRepoUri = properties["localRepoUri"] as String
+
 repositories {
     mavenCentral()
     maven {
-        url = uri("file://Users/alaspooryorick/localrepo")
+        url = uri(localRepoUri)
     }
 }
