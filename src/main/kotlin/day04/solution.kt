@@ -1,25 +1,26 @@
 package org.example.day04
 
 import arrow.core.memoize
+import org.example.model.Grid
 import org.example.model.GridCoordValue
-import org.example.model.GridSet
+import org.example.model.GridDense
 
 fun howManyTimesXmasOccurs(inputRows: List<String>) : Int {
-    val gridSet: GridSet<Char> = GridSet.fromInput(inputRows.map { row -> row.map { it } })
+    val gridSparse: GridDense<Char> = GridDense.fromInput(inputRows.map { row -> row.map { it } })
 
-    return gridSet.data.filter { it.value == 'X' }.sumOf { memoizedcountWordsFromCoord(gridSet, it) }
+    return gridSparse.dataAsSeq().filter { it.value == 'X' }.sumOf { memoizedcountWordsFromCoord(gridSparse, it) }
 }
 
 fun howManyTimesCrossXmasOccurs(inputRows: List<String>) : Int {
-    val gridSet: GridSet<Char> = GridSet.fromInput(inputRows.map { row -> row.map { it } })
-    return gridSet.data.filter { it.value == 'A' }.sumOf { memoizedcountXmasFromCoord(gridSet, it) }
+    val gridSparse: GridDense<Char> = GridDense.fromInput(inputRows.map { row -> row.map { it } })
+    return gridSparse.dataAsSeq().filter { it.value == 'A' }.sumOf { memoizedcountXmasFromCoord(gridSparse, it) }
 }
 
-fun countWordsFromCoord(grid: GridSet<Char>, gridCoordValue: GridCoordValue<Char>) : Int {
-    return GridSet.Direction.entries.map { grid.scanDirection(gridCoordValue, it, gridCoordValue.value.toString()) }.count { it == "XMAS" }
+fun countWordsFromCoord(grid: GridDense<Char>, gridCoordValue: GridCoordValue<Char>) : Int {
+    return Grid.Direction.entries.map { grid.scanDirection(gridCoordValue, it, gridCoordValue.value.toString()) }.count { it == "XMAS" }
 }
 
-fun countXmasFromCoord(grid: GridSet<Char>, gridCoordValue: GridCoordValue<Char>) : Int {
+fun countXmasFromCoord(grid: GridDense<Char>, gridCoordValue: GridCoordValue<Char>) : Int {
     return if (grid.scanXMAS(gridCoordValue)) 1 else 0
 }
 
