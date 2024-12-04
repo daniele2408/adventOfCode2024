@@ -15,6 +15,8 @@ repositories {
 dependencies {
     testImplementation(kotlin("test"))
     implementation("aocutils:logic:0.1.0")
+    implementation("io.arrow-kt:arrow-core:1.2.4")
+    implementation("io.arrow-kt:arrow-fx-coroutines:1.2.4")
 }
 
 tasks.test {

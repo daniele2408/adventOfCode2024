@@ -6,6 +6,8 @@ import org.example.day02.howManySafeReports
 import org.example.day02.howManySafeReportsWithProblemDampener
 import org.example.day03.addingUpParsedMultiplication
 import org.example.day03.addingUpParsedMultiplicationPart2
+import org.example.day04.howManyTimesCrossXmasOccurs
+import org.example.day04.howManyTimesXmasOccurs
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -29,6 +31,11 @@ fun main() {
                 3,
                 SolutionPart({ addingUpParsedMultiplication(it) }, 161),
                 SolutionPart({ addingUpParsedMultiplicationPart2(it) }, 48)
+            ),
+            SolutionBundle(
+                4,
+                SolutionPart({ howManyTimesXmasOccurs(it) }, 18),
+                SolutionPart({ howManyTimesCrossXmasOccurs(it) }, 9)
             )
         ),
         skipAllButLast = false
