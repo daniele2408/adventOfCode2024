@@ -8,6 +8,8 @@ import org.example.day03.addingUpParsedMultiplication
 import org.example.day03.addingUpParsedMultiplicationPart2
 import org.example.day04.howManyTimesCrossXmasOccurs
 import org.example.day04.howManyTimesXmasOccurs
+import org.example.day05.addUpMiddlePageNumbersOfCorrectUpdates
+import org.example.day05.addUpMiddlePageNumbersOfEditedInCorrectUpdates
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -36,6 +38,11 @@ fun main() {
                 4,
                 SolutionPart({ howManyTimesXmasOccurs(it) }, 18),
                 SolutionPart({ howManyTimesCrossXmasOccurs(it) }, 9)
+            ),
+            SolutionBundle(
+                5,
+                SolutionPart({ addUpMiddlePageNumbersOfCorrectUpdates(it) }, 143),
+                SolutionPart({ addUpMiddlePageNumbersOfEditedInCorrectUpdates(it) }, 123)
             )
         ),
         skipAllButLast = false
