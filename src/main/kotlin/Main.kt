@@ -10,6 +10,7 @@ import org.example.day04.howManyTimesCrossXmasOccurs
 import org.example.day04.howManyTimesXmasOccurs
 import org.example.day05.addUpMiddlePageNumbersOfCorrectUpdates
 import org.example.day05.addUpMiddlePageNumbersOfEditedInCorrectUpdates
+import org.example.day06.howManyDistinctPosition
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -43,9 +44,13 @@ fun main() {
                 5,
                 SolutionPart({ addUpMiddlePageNumbersOfCorrectUpdates(it) }, 143),
                 SolutionPart({ addUpMiddlePageNumbersOfEditedInCorrectUpdates(it) }, 123)
+            ),
+            SolutionBundle(
+                6,
+                SolutionPart({ howManyDistinctPosition(it) }, 41),
             )
         ),
-        skipAllButLast = false
+        skipAllButLast = true
     )
 
     solutionRunner.run()

@@ -1,6 +1,8 @@
 package org.example.model
 
-class GridSparse<T>(private val data: Set<GridCoordValue<T>>) : Grid<T> {
+class GridSparse<T>(val data: Set<GridCoordValue<T>>) : Grid<T> {
+    val nRow = data.maxBy { it.row }.row
+    val nCol = data.maxBy { it.col }.col
 
     companion object {
 
@@ -24,6 +26,9 @@ class GridSparse<T>(private val data: Set<GridCoordValue<T>>) : Grid<T> {
         return get(gridCoordValue.col, gridCoordValue.row)
     }
 
+    fun isOutside(gridCoord: GridCoord) : Boolean {
+        return gridCoord.col > nCol || gridCoord.row > nRow
+    }
 
 
 }
