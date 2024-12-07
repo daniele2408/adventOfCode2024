@@ -1,4 +1,4 @@
-package org.example
+package org.example.logic
 
 typealias PairElAndRest<T> = Pair<T, List<T>>
 

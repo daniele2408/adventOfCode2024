@@ -12,9 +12,12 @@ import org.example.day05.addUpMiddlePageNumbersOfCorrectUpdates
 import org.example.day05.addUpMiddlePageNumbersOfEditedInCorrectUpdates
 import org.example.day06.howManyDifferentPositionsToEnforceLoop
 import org.example.day06.howManyDistinctPosition
+import org.example.day07.computeTotalCalibrationResult
+import org.example.day07.computeTotalCalibrationResultWithPipe
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
+import java.math.BigInteger
 
 
 fun main() {
@@ -50,6 +53,11 @@ fun main() {
                 6,
                 SolutionPart({ howManyDistinctPosition(it) }, 41),
                 SolutionPart({ howManyDifferentPositionsToEnforceLoop(it) }, 6),
+            ),
+            SolutionBundle(
+                7,
+                SolutionPart({ computeTotalCalibrationResult(it) }, BigInteger("3749")),
+                SolutionPart({ computeTotalCalibrationResultWithPipe(it) }, BigInteger("11387")),
             )
         ),
         skipAllButLast = true

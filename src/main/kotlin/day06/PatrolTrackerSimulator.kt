@@ -1,10 +1,9 @@
 package org.example.day06
 
-import org.example.butLast
+import org.example.logic.butLast
 import org.example.model.Grid
 import org.example.model.GridCoord
 import org.example.model.GridDense
-import org.example.model.GridSparse
 
 class PatrolTrackerSimulator(val grid: GridDense<Stuff>, guard: Guard) {
 

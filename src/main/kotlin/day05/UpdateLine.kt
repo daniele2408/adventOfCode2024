@@ -1,6 +1,6 @@
 package org.example.day05
 
-import org.example.permutationOneAndRest
+import org.example.logic.permutationOneAndRest
 
 data class UpdateLine(val update: List<Int>) {
     companion object {

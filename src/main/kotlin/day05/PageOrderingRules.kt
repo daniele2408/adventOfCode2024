@@ -1,7 +1,7 @@
 package org.example.day05
 
-import org.example.elementAndAfterIt
-import org.example.elementAndBeforeIt
+import org.example.logic.elementAndAfterIt
+import org.example.logic.elementAndBeforeIt
 
 data class PageOrderingRules(val rules: Map<Int, List<Int>>) {
 
