@@ -27,7 +27,7 @@ class GridSparse<T>(val data: Set<GridCoordValue<T>>) : Grid<T> {
     }
 
     fun isOutside(gridCoord: GridCoord) : Boolean {
-        return gridCoord.col > nCol || gridCoord.row > nRow
+        return gridCoord.col !in (0..nCol) || gridCoord.row !in (0..nRow)
     }
 
 

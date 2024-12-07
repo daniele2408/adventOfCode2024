@@ -1,12 +1,9 @@
 package org.example.day06
 
-import arrow.core.left
-import arrow.core.right
 import org.example.model.Grid
 import org.example.model.GridCoord
-import org.example.model.GridCoordValue
 
-class Guard(val gridCoord: GridCoord, val direction: Grid.Direction) {
+class Guard(val gridCoord: GridCoord, val direction: Grid.Direction) : Stuff {
 
     companion object {
         fun initGuard(inputRows: List<String>) : Guard {
@@ -32,5 +29,19 @@ class Guard(val gridCoord: GridCoord, val direction: Grid.Direction) {
             Grid.Direction.W -> Grid.Direction.N
             else -> throw RuntimeException("Direction $direction not supported")
         }
+    }
+
+    fun printDirection() : String {
+        return when (direction) {
+            Grid.Direction.N -> "^"
+            Grid.Direction.E -> ">"
+            Grid.Direction.S -> "v"
+            Grid.Direction.W -> "<"
+            else -> throw RuntimeException("Direction $direction not supported")
+        }
+    }
+
+    override fun toString(): String {
+        return "Guard(gridCoord=$gridCoord, direction=$direction)"
     }
 }

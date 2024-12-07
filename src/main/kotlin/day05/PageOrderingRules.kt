@@ -1,5 +1,8 @@
 package org.example.day05
 
+import org.example.elementAndAfterIt
+import org.example.elementAndBeforeIt
+
 data class PageOrderingRules(val rules: Map<Int, List<Int>>) {
 
     companion object {

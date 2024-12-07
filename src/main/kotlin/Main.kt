@@ -10,6 +10,7 @@ import org.example.day04.howManyTimesCrossXmasOccurs
 import org.example.day04.howManyTimesXmasOccurs
 import org.example.day05.addUpMiddlePageNumbersOfCorrectUpdates
 import org.example.day05.addUpMiddlePageNumbersOfEditedInCorrectUpdates
+import org.example.day06.howManyDifferentPositionsToEnforceLoop
 import org.example.day06.howManyDistinctPosition
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
@@ -48,6 +49,7 @@ fun main() {
             SolutionBundle(
                 6,
                 SolutionPart({ howManyDistinctPosition(it) }, 41),
+                SolutionPart({ howManyDifferentPositionsToEnforceLoop(it) }, 6),
             )
         ),
         skipAllButLast = true

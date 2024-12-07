@@ -1,6 +1,6 @@
 package org.example.model
 
-class GridDense<T>(private val data: List<List<GridCoordValue<T>>>) : Grid<T> {
+class GridDense<T>(val data: List<List<GridCoordValue<T>>>) : Grid<T> {
     val nRow = data.size
     val nCol = data.first().size
 
@@ -13,6 +13,25 @@ class GridDense<T>(private val data: List<List<GridCoordValue<T>>>) : Grid<T> {
         }
 
     }
+
+    fun selectCol(idxCol: Int) : List<GridCoordValue<T>> {
+        return data.map { it[idxCol] }
+    }
+
+    fun selectRow(idxRow: Int) : List<GridCoordValue<T>> {
+        return data[idxRow]
+    }
+
+    fun sliceCol(startIdxRow: Int, endIdxRow: Int, idxCol: Int) : List<GridCoordValue<T>> {
+        require(startIdxRow <= endIdxRow)
+        return selectCol(idxCol).filter { it.row in (startIdxRow..endIdxRow) }
+    }
+
+    fun sliceRow(startIdxCol: Int, endIdxCol: Int, idxRow: Int) : List<GridCoordValue<T>> {
+        require(startIdxCol <= endIdxCol)
+        return selectRow(idxRow).filter { it.col in (startIdxCol..endIdxCol) }
+    }
+
 
     override fun dataAsSeq() : Sequence<GridCoordValue<T>> {
         return data.flatten().asSequence()
@@ -28,6 +47,8 @@ class GridDense<T>(private val data: List<List<GridCoordValue<T>>>) : Grid<T> {
         return get(gridCoordValue.col, gridCoordValue.row)
     }
 
-
+    fun isOutside(gridCoord: GridCoord) : Boolean {
+        return gridCoord.col !in (0..nCol) || gridCoord.row !in (0..nRow)
+    }
 
 }

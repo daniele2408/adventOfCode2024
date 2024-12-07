@@ -1,5 +1,7 @@
 package org.example.day05
 
+import org.example.permutationOneAndRest
+
 data class UpdateLine(val update: List<Int>) {
     companion object {
         fun from(inputRows: String) : UpdateLine {

@@ -6,11 +6,12 @@ interface Stuff {
     companion object {
         fun from(input: String) : Stuff {
             return when (input) {
-                "#" -> Obstacle
+                "#", "O" -> Obstacle
 //                "^" -> Guard(Grid.Direction.N)
 //                ">" -> Guard(Grid.Direction.E)
 //                "v" -> Guard(Grid.Direction.S)
 //                "<" -> Guard(Grid.Direction.W)
+                ".", "^" -> Empty
                 else -> throw RuntimeException("value $input not supported")
             }
         }

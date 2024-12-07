@@ -1,4 +1,4 @@
-package org.example.day05
+package org.example
 
 typealias PairElAndRest<T> = Pair<T, List<T>>
 
@@ -19,4 +19,12 @@ fun <T> List<T>.permutationOneAndRest() : List<PairElAndRest<T>> {
         val (el, rest) = this.elementAndRest(idx)
         Pair(el, rest)
     }.toList()
+}
+
+
+fun <T> List<T>.butLast() : List<T> {
+    return when(this.size) {
+        0, 1 -> this
+        else -> this.subList(0, this.size-1)
+    }
 }
