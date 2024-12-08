@@ -14,6 +14,8 @@ import org.example.day06.howManyDifferentPositionsToEnforceLoop
 import org.example.day06.howManyDistinctPosition
 import org.example.day07.computeTotalCalibrationResult
 import org.example.day07.computeTotalCalibrationResultWithPipe
+import org.example.day08.howManyAntinodes
+import org.example.day08.howManyAntinodesWithResonance
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -58,7 +60,13 @@ fun main() {
                 7,
                 SolutionPart({ computeTotalCalibrationResult(it) }, BigInteger("3749")),
                 SolutionPart({ computeTotalCalibrationResultWithPipe(it) }, BigInteger("11387")),
+            ),
+            SolutionBundle(
+                8,
+                SolutionPart({ howManyAntinodes(it) }, 14),
+                SolutionPart({ howManyAntinodesWithResonance(it) }, 34),
             )
+
         ),
         skipAllButLast = true
     )

@@ -32,6 +32,13 @@ interface Grid<T> {
         else return getNextUntil(next, direction, steps-1)
     }
 
+    fun getNextUntilOrNull(gc: GridCoordValue<T>, direction: Direction, steps: Int) : GridCoordValue<T>? {
+        if (steps == 0) return gc
+        val next = getNext(gc, direction)
+        return if (next == null) null
+        else getNextUntil(next, direction, steps-1)
+    }
+
     fun peekNext(gc: GridCoord, direction: Direction) : GridCoord {
         return when (direction) {
             Direction.S -> GridCoord(gc.row+1, gc.col)
