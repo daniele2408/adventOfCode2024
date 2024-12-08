@@ -46,3 +46,4 @@ bin/
 *.xml
 
 local.properties
+/src/main/resources/inputs/
