@@ -23,11 +23,6 @@ fun howManyAntinodesWithResonance(inputRows: List<String>) : Int {
 fun GridSparse<Antenna>.computeAllAntinodesLocation(accountForResonance: Boolean = false) : Int {
     val antennaTypes = dataAsSeq().map { it.value }.distinct()
     val antinodes = antennaTypes.flatMap { computeAntinodesForAntenna(it, accountForResonance) }.toSet()
-    val draw = this.addData(antinodes.map { GridCoordValue.from(it, Antenna('#')) }.toSet())
-        .draw(
-            { a -> a.symbol.toString() }
-        )
-    println(draw)
     return antinodes.size
 }
 
