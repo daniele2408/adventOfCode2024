@@ -16,6 +16,7 @@ import org.example.day07.computeTotalCalibrationResult
 import org.example.day07.computeTotalCalibrationResultWithPipe
 import org.example.day08.howManyAntinodes
 import org.example.day08.howManyAntinodesWithResonance
+import org.example.day09.computeCheckSum
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -65,6 +66,10 @@ fun main() {
                 8,
                 SolutionPart({ howManyAntinodes(it) }, 14),
                 SolutionPart({ howManyAntinodesWithResonance(it) }, 34),
+            ),
+            SolutionBundle(
+                9,
+                SolutionPart({ computeCheckSum(it) }, BigInteger("1928"))
             )
 
         ),
