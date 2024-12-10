@@ -17,6 +17,7 @@ import org.example.day07.computeTotalCalibrationResultWithPipe
 import org.example.day08.howManyAntinodes
 import org.example.day08.howManyAntinodesWithResonance
 import org.example.day09.computeCheckSum
+import org.example.day09.computeCheckSumWholeFiles
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -69,7 +70,8 @@ fun main() {
             ),
             SolutionBundle(
                 9,
-                SolutionPart({ computeCheckSum(it) }, BigInteger("1928"))
+                SolutionPart({ computeCheckSum(it) }, BigInteger("1928")),
+                SolutionPart({ computeCheckSumWholeFiles(it) }, BigInteger("2858"))
             )
 
         ),
