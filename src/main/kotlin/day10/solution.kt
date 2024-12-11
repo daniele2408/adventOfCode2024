@@ -13,6 +13,14 @@ fun sumScores(inputRows: List<String>) : Int {
     }
 }
 
+fun sumRatings(inputRows: List<String>) : Int {
+    val grid = GridDense.fromInput(inputRows.map { it.map { e -> e.digitToInt() } })
+    val startingPoints = grid.dataAsSeq().filter { it.value == 0 }.map { it }
+    return startingPoints.sumOf {
+        grid.findPath(it, listOf(it)).count()
+    }
+}
+
 fun GridDense<Int>.findPath(startingPoint: GridCoordValue<Int>, path: List<GridCoordValue<Int>>) : Set<List<GridCoordValue<Int>>> {
 
     if (startingPoint.value == 9) return setOf(path)

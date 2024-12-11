@@ -18,6 +18,7 @@ import org.example.day08.howManyAntinodes
 import org.example.day08.howManyAntinodesWithResonance
 import org.example.day09.computeCheckSum
 import org.example.day09.computeCheckSumWholeFiles
+import org.example.day10.sumRatings
 import org.example.day10.sumScores
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
@@ -76,7 +77,8 @@ fun main() {
             ),
             SolutionBundle(
                 10,
-                SolutionPart({ sumScores(it) }, 36)
+                SolutionPart({ sumScores(it) }, 36),
+                SolutionPart({ sumRatings(it) }, 81)
             )
 
         ),
