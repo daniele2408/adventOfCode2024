@@ -25,6 +25,19 @@ interface Grid<T> {
         }
     }
 
+    fun getNext(gc: GridCoord, direction: Direction) : GridCoord?{
+        return when (direction) {
+            Direction.S -> get(gc.col, gc.row+1)?.justCoord()
+            Direction.N -> get(gc.col, gc.row-1)?.justCoord()
+            Direction.E -> get(gc.col+1, gc.row)?.justCoord()
+            Direction.W -> get(gc.col-1, gc.row)?.justCoord()
+            Direction.NE -> getNext(gc, Direction.N)?.let { getNext(it, Direction.E)}
+            Direction.NW -> getNext(gc, Direction.N)?.let { getNext(it, Direction.W)}
+            Direction.SE -> getNext(gc, Direction.S)?.let { getNext(it, Direction.E)}
+            Direction.SW -> getNext(gc, Direction.S)?.let { getNext(it, Direction.W)}
+        }
+    }
+
     fun getNextUntil(gc: GridCoordValue<T>, direction: Direction, steps: Int) : GridCoordValue<T> {
         if (steps == 0) return gc
         val next = getNext(gc, direction)

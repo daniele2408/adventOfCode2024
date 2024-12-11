@@ -18,6 +18,7 @@ import org.example.day08.howManyAntinodes
 import org.example.day08.howManyAntinodesWithResonance
 import org.example.day09.computeCheckSum
 import org.example.day09.computeCheckSumWholeFiles
+import org.example.day10.sumScores
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -72,6 +73,10 @@ fun main() {
                 9,
                 SolutionPart({ computeCheckSum(it) }, BigInteger("1928")),
                 SolutionPart({ computeCheckSumWholeFiles(it) }, BigInteger("2858"))
+            ),
+            SolutionBundle(
+                10,
+                SolutionPart({ sumScores(it) }, 36)
             )
 
         ),
