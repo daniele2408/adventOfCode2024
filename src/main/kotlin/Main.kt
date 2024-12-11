@@ -83,7 +83,8 @@ fun main() {
             ),
             SolutionBundle(
                 11,
-                SolutionPart({ howManyStones(it, 25) }, 55312)
+                SolutionPart({ howManyStones(it, 25) }, 55312L),
+                SolutionPart({ howManyStones(it, 75) }, 65601038650482L) // even if passing, way too slow :( fix if possible
             )
 
         ),
