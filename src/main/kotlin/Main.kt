@@ -20,6 +20,7 @@ import org.example.day09.computeCheckSum
 import org.example.day09.computeCheckSumWholeFiles
 import org.example.day10.sumRatings
 import org.example.day10.sumScores
+import org.example.day11.howManyStones
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -79,6 +80,10 @@ fun main() {
                 10,
                 SolutionPart({ sumScores(it) }, 36),
                 SolutionPart({ sumRatings(it) }, 81)
+            ),
+            SolutionBundle(
+                11,
+                SolutionPart({ howManyStones(it, 25) }, 55312)
             )
 
         ),
