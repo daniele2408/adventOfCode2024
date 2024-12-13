@@ -22,6 +22,7 @@ import org.example.day10.sumRatings
 import org.example.day10.sumScores
 import org.example.day11.howManyStones
 import org.example.day12.totalFencingPrice
+import org.example.day12.totalFencingPriceTheSideWay
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -89,7 +90,8 @@ fun main() {
             ),
             SolutionBundle(
                 12,
-                SolutionPart({ totalFencingPrice(it) }, 1930)
+                SolutionPart({ totalFencingPrice(it) }, 1930),
+                SolutionPart({ totalFencingPriceTheSideWay(it) }, 1206)
             )
 
         ),

@@ -12,10 +12,6 @@ interface Grid<T> {
         return get(coord.col, coord.row)
     }
 
-    fun getAllAround(gc: GridCoordValue<T>) : Set<GridCoordValue<T>> {
-        return Direction.entries.mapNotNull { getNext(gc, it) }.toSet()
-    }
-
     fun getNSWEAround(gc: GridCoordValue<T>) : Set<GridCoordValue<T>> {
         return setOf(Direction.N, Direction.S, Direction.E, Direction.W).mapNotNull { getNext(gc, it) }.toSet()
     }

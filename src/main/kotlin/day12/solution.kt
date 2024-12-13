@@ -1,7 +1,7 @@
 package org.example.day12
 
 import org.example.logic.permutationOneAndRest
-import org.example.model.GridCoord
+import org.example.model.Grid
 import org.example.model.GridCoordValue
 import org.example.model.GridDense
 
@@ -15,11 +15,20 @@ fun totalFencingPrice(inputRows: List<String>) : Int {
         grid.collectAreasForChar(it, setOf())
     }.toSet()
 
-//    areas.forEach {
-//        println("Area [${it.first().value}] size [${it.size}] perimeter [${it.computerPerimeter()}]")
-//    }
-
     return areas.sumOf { it.size * it.computerPerimeter() }
+}
+
+fun totalFencingPriceTheSideWay(inputRows: List<String>) : Int {
+    val grid: GridDense<Char> = GridDense.fromInput(
+        inputRows.map { it.map { c -> c } }
+    )
+
+    val distinctValues = grid.dataAsSeq().map { it.value }.distinct().toSet()
+    val areas: Set<Area> = distinctValues.flatMap {
+        grid.collectAreasForChar(it, setOf())
+    }.toSet()
+
+    return areas.sumOf { it.size * grid.countCorners(it) }
 }
 
 typealias Area = Set<GridCoordValue<Char>>
@@ -48,4 +57,38 @@ fun GridDense<Char>.spanArea(frontier: ArrayDeque<GridCoordValue<Char>>, acc: Ar
         .toSet()
     frontier.addAll(aroundArea)
     return this.spanArea(frontier, acc + setOf(gcv))
+}
+
+fun GridDense<Char>.countCorners(area: Area): Int {
+    if (area.isEmpty()) return 0
+    if (area.size == 1) return 4
+    return area.sumOf {
+        Corner.entries.count { c -> c.test.invoke(this, it) }
+    }
+}
+
+fun GridDense<Char>.isDifferentAt(center: GridCoordValue<Char>, dir: Grid.Direction) : Boolean {
+    val next = getNext(center, dir)
+    return if (next == null) true
+    else next.value != center.value
+}
+
+fun GridDense<Char>.isDifferentAt(center: GridCoordValue<Char>, dirs: Set<Grid.Direction>) : Boolean {
+    return dirs.all { isDifferentAt(center, it) }
+}
+
+fun GridDense<Char>.isSameAt(center: GridCoordValue<Char>, dirs: Set<Grid.Direction>) : Boolean {
+    return dirs.none { isDifferentAt(center, it) }
+}
+
+enum class Corner(val test: (GridDense<Char>, GridCoordValue<Char>) -> Boolean) {
+    UPPER_LEFT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.N, Grid.Direction.W))  } ),
+    UPPER_RIGHT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.N, Grid.Direction.E)) } ),
+    LOWER_LEFT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.S, Grid.Direction.W)) } ),
+    LOWER_RIGHT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.S, Grid.Direction.E)) } ),
+
+    INTERNAL_UPPER_LEFT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.SE)) && grid.isSameAt(center, setOf(Grid.Direction.S, Grid.Direction.E)) } ),
+    INTERNAL_UPPER_RIGHT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.SW)) && grid.isSameAt(center, setOf(Grid.Direction.S, Grid.Direction.W)) } ),
+    INTERNAL_LOWER_LEFT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.NE)) && grid.isSameAt(center, setOf(Grid.Direction.N, Grid.Direction.E)) } ),
+    INTERNAL_LOWER_RIGHT( { grid, center -> grid.isDifferentAt(center, setOf(Grid.Direction.NW)) && grid.isSameAt(center, setOf(Grid.Direction.N, Grid.Direction.W)) } )
 }
