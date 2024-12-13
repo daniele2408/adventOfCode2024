@@ -36,4 +36,9 @@ data class GridCoord(val row: Int, val col: Int) {
         }
     }
 
+    fun isNextTo(other: GridCoord) : Boolean {
+        return abs(this.row - other.row) == 0 && abs(this.col - other.col) == 1 ||
+                abs(this.row - other.row) == 1 && abs(this.col - other.col) == 0
+    }
+
 }

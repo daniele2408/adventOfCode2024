@@ -21,6 +21,7 @@ import org.example.day09.computeCheckSumWholeFiles
 import org.example.day10.sumRatings
 import org.example.day10.sumScores
 import org.example.day11.howManyStones
+import org.example.day12.totalFencingPrice
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -85,6 +86,10 @@ fun main() {
                 11,
                 SolutionPart({ howManyStones(it, 25) }, 55312L),
                 SolutionPart({ howManyStones(it, 75) }, 65601038650482L) // even if passing, way too slow :( fix if possible
+            ),
+            SolutionBundle(
+                12,
+                SolutionPart({ totalFencingPrice(it) }, 1930)
             )
 
         ),
