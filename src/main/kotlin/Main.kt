@@ -23,6 +23,8 @@ import org.example.day10.sumScores
 import org.example.day11.howManyStones
 import org.example.day12.totalFencingPrice
 import org.example.day12.totalFencingPriceTheSideWay
+import org.example.day13.howManyTokens
+import org.example.day13.howManyTokensMoar
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -92,6 +94,11 @@ fun main() {
                 12,
                 SolutionPart({ totalFencingPrice(it) }, 1930),
                 SolutionPart({ totalFencingPriceTheSideWay(it) }, 1206)
+            ),
+            SolutionBundle(
+                13,
+                SolutionPart({ howManyTokens(it) }, 480L),
+                SolutionPart({ howManyTokensMoar(it) }, 875318608908L)
             )
 
         ),
