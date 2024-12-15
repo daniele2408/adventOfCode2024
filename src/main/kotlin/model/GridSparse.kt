@@ -2,7 +2,7 @@ package org.example.model
 
 import javax.xml.crypto.Data
 
-class GridSparse<T>(val data: Set<GridCoordValue<T>>, private val nRow: Int, private val nCol: Int) : Grid<T> {
+class GridSparse<T>(val data: Set<GridCoordValue<T>>, val nRow: Int, val nCol: Int) : Grid<T> {
 
     constructor(data: Set<GridCoordValue<T>>) : this(data, data.maxBy { it.row }.row, data.maxBy { it.col }.col)
 
@@ -32,6 +32,10 @@ class GridSparse<T>(val data: Set<GridCoordValue<T>>, private val nRow: Int, pri
 
     override fun get(col: Int, row: Int) : GridCoordValue<T>? {
         return data.find { it.col == col && it.row == row }
+    }
+
+    fun getAll(col: Int, row: Int) : List<GridCoordValue<T>> {
+        return data.filter { it.col == col && it.row == row }
     }
 
     override fun get(gridCoordValue: GridCoordValue<T>) : GridCoordValue<T>? {

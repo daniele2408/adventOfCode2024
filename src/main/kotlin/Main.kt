@@ -25,6 +25,8 @@ import org.example.day12.totalFencingPrice
 import org.example.day12.totalFencingPriceTheSideWay
 import org.example.day13.howManyTokens
 import org.example.day13.howManyTokensMoar
+import org.example.day14.computeSecurityFactor
+import org.example.day14.computeSecurityFactorEasterEggLowestTotSteps
 import org.structure.SolutionBundle
 import org.structure.SolutionPart
 import org.structure.SolutionRunner
@@ -99,6 +101,11 @@ fun main() {
                 13,
                 SolutionPart({ howManyTokens(it) }, 480L),
                 SolutionPart({ howManyTokensMoar(it) }, 875318608908L)
+            ),
+            SolutionBundle(
+                14,
+                SolutionPart({ computeSecurityFactor(it) }, BigInteger("12")),
+                SolutionPart({ computeSecurityFactorEasterEggLowestTotSteps(it) }, -1) // this part has no sample solution
             )
 
         ),
